@@ -20,9 +20,9 @@ class RouterBase {
                 $pattern = preg_replace('(\{[a-z0-9]{1,}\})', '([a-z0-9-]{1,})', $route);
 
                 // Faz o match da URL
-                if(preg_match('#^('.$pattern.')*$#i', $url, $matches) === 1) {
+                if(preg_match('#^'.$pattern.'$#i', $url, $matches) === 1) {
                     array_shift($matches);
-                    array_shift($matches);
+                    // array_shift($matches); // removido o segundo shift
 
                     // Pega todos os argumentos para associar
                     $itens = array();

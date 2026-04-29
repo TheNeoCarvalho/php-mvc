@@ -6,9 +6,17 @@ use src\Config;
 class Request {
 
     public static function getUrl() {
-        $url = filter_input(INPUT_GET, 'request');
-        $url = str_replace(Config::BASE_DIR, '', $url);
-        return '/'.$url;
+        // Tentar pegar da query string (quando .htaccess está ativo)
+        if(isset($_GET['request'])) {
+            $url = $_GET['request'];
+        } else {
+            // Fallback para REQUEST_URI (servidor sem .htaccess)
+            $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+            $url = str_replace(Config::BASE_DIR, '', $url);
+        }
+        
+        $url = trim($url, '/');
+        return $url ? '/' . $url : '/';
     }
 
     public static function getMethod() {
