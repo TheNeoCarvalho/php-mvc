@@ -6,6 +6,6 @@ use \core\Controller;
 
 class UsuarioController extends Controller {
 
-
+    public function index(){}
 
 }
