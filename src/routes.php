@@ -14,6 +14,8 @@ $router->get('/contato', 'ContatoController@index');
 $router->get('/usuarios', 'UsuarioController@index');
 //Exibir um usuário
 $router->get('/usuario/mostar/{id}', 'UsuarioController@mostrar');
+//Formulario para criar um usuário
+$router->get('/form', 'UsuarioController@form');
 //Criar um usuário
 $router->post('/usuario', 'UsuarioController@criar');
 //Atualizar um usuário
