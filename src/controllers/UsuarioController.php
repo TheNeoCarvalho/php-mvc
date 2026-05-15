@@ -18,4 +18,22 @@ class UsuarioController extends Controller
     {
         $this->render('form');
     }
+
+    public function salvar(){
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
+            if(isset($nome) && isset($email) && isset($senha)){
+                $nome = $_POST['nome'];
+                $email = $_POST['email'];
+                $senha = $_POST['senha'];
+                Usuario::criarUsuario([
+                    'nome' => $nome,
+                    'email' => $email,
+                    'senha' => $senha
+                ]);
+                $this->redirect('/usuarios');
+            }
+            echo "Erro";
+        }
+
+    }
 }

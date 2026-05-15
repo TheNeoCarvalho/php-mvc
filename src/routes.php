@@ -17,7 +17,7 @@ $router->get('/usuario/mostar/{id}', 'UsuarioController@mostrar');
 //Formulario para criar um usuário
 $router->get('/form', 'UsuarioController@form');
 //Criar um usuário
-$router->post('/usuario', 'UsuarioController@criar');
+$router->post('/usuario', 'UsuarioController@salvar');
 //Atualizar um usuário
 $router->put('/usuario/atualizar/{id}', 'UsuarioController@atualizar');
 //Deletar um usuário

@@ -6,4 +6,9 @@ class Usuario extends Model {
     public static function retornaTodosUsuarios(){
         return self::select()->get();
     }
+
+    public static function criarUsuario($dados){
+        return self::insert($dados)->execute();
+    }
+
 }
