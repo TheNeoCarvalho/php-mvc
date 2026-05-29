@@ -21,4 +21,5 @@ $router->post('/usuario', 'UsuarioController@salvar');
 //Atualizar um usuário
 $router->put('/usuario/atualizar/{id}', 'UsuarioController@atualizar');
 //Deletar um usuário
-$router->delete('/usuairo/deletar/{id}', 'UsuarioController@deletar');
+$router->post('/usuario/deletar/{id}', 'UsuarioController@deletar');
+$router->get('/usuario/deletar', 'UsuarioController@deletar');
